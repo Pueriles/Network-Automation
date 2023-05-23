@@ -25,5 +25,4 @@
 
 <br>
 
-
-![PNET](https://i.imgur.com/1PP8oCG.png)
+- Pueriles
