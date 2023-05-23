@@ -1,0 +1,19 @@
+ansible_host: 192.168.x.x
+
+# GI0/1
+GI1_ip: 192.168.20.1
+GI1_subnet: 255.255.255.0
+GI1_network: 192.168.20.0
+GI1_wildcard: 0.0.0.255
+
+# GI0/2
+GI2_ip: dhcp
+GI2_network: x.x.x.x
+GI2_wildcard: x.x.x.x
+
+# Domain name
+domain_name: joshua.intern
+
+# Username & Password
+username: joshua
+password: Welkom01!

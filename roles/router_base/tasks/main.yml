@@ -1,0 +1,56 @@
+---
+
+- name: "Router Configurations"
+  become: yes
+  hosts: routers
+  gather_facts: false
+  tasks:
+      
+    - name: "Hostname configuration"
+      ios_config:
+        lines:
+          - hostname {{ inventory_hostname }}
+    
+    - name: "Configure User and Password"
+      ios_config:
+        lines:
+          - username {{ username }} privilege 15 secret {{ password }}
+
+    - name: "Creating Domain_Name and SSH-Keys"
+      ios_config:
+        lines:
+          - ip domain-name {{ domain_name }}
+          # - crypto key generate rsa general-keys modulus 2048
+
+    # - name: "enabling SSH"
+    #   ios_config:
+    #     parents: "line vty 0 15"
+    #     lines:
+    #       - transport input ssh
+    #       - login local
+    #       - password cisco
+    #       - exit
+
+    - name: "Securing password"
+      ios_config:
+        lines:
+          - service password-encryption
+
+    - name: "Set Interface for GI0/1"
+      ios_config:
+        parents: "interface GigabitEthernet1"
+        lines:
+          - ip address {{ GI1_ip }} {{ GI1_subnetmask }}
+
+    - name: "Set Interface for GI0/2"
+      ios_config:
+        parents: "interface GigabitEthernet2"
+        lines:
+          - ip address {{ GI2_ip }}
+
+    # - name: "Configure OSPF"
+    #   ios_config:
+    #     parents: "router ospf 1"
+    #     lines:
+    #       - network {{ GI1_network }} {{ GI1_wildcard }} area 0
+    #       - network {{ GI2_network }} {{ GI2_wildcard }} area 0
