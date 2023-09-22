@@ -6,6 +6,6 @@ R3 ansible_host=192.168.x.x
 [routers:vars]
 ansible_network_os=ios
 ansible_connection=network_cli
-ansible_user=joshua
+ansible_user=sebastiaan
 ansible_password=Welkom01!
 ansible_python_interpreter=/usr/bin/python3
