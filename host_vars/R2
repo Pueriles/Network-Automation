@@ -12,8 +12,8 @@ GI2_network: x.x.x.x
 GI2_wildcard: x.x.x.x
 
 # Domain name
-domain_name: joshua.intern
+domain_name: sebastiaan.intern
 
 # Username & Password
-username: joshua
+username: sebastiaan
 password: Welkom01!
